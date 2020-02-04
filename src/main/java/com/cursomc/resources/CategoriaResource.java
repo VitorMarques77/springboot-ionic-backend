@@ -17,8 +17,8 @@ public class CategoriaResource {
 	@GetMapping
 	public List<Categoria> listar() {
 		
-		Categoria cat1 = new Categoria(1, "Informática");
-		Categoria cat2 = new Categoria(2, "Escritório");
+		Categoria cat1 = new Categoria(null, "Informática");
+		Categoria cat2 = new Categoria(null, "Escritório");
 		
 		List<Categoria> list = new ArrayList<>();
 		

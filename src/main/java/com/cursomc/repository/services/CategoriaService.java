@@ -1,9 +1,12 @@
 package com.cursomc.repository.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cursomc.repository.CategoriaRepository;
+import com.cursomc.domain.Categoria;
+import com.cursomc.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaService {
@@ -12,5 +15,9 @@ public class CategoriaService {
 	private CategoriaRepository repository;
 	
 	
+	public Categoria findById(Long id) {
+		Optional<Categoria> obj = repository.findById(id);
+		return obj.orElse(null);
+	}
 	
 }

@@ -21,4 +21,7 @@ public class CategoriaService {
 		return obj.orElseThrow(()-> new ObjectNotFoundException(id));
 	}
 	
+	public Categoria insert(Categoria obj) {
+		return repository.save(obj);
+	}
 }

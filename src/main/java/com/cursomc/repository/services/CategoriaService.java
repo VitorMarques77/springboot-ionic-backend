@@ -3,10 +3,12 @@ package com.cursomc.repository.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.cursomc.domain.Categoria;
 import com.cursomc.repositories.CategoriaRepository;
+import com.cursomc.repository.services.exceptions.DataIntegrityException;
 import com.cursomc.repository.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -30,8 +32,19 @@ public class CategoriaService {
 		updateCategoria(obj,cat);
 		return repository.save(cat);
 	}
+	
+	public void deleteById(Long id) {
+		findById(id);
+		try {
+		repository.deleteById(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException(e.getMessage());
+		}
+	}
 
 	private void updateCategoria(Categoria obj, Categoria cat) {
 		cat.setNome(obj.getNome());
 	}
+	
 }

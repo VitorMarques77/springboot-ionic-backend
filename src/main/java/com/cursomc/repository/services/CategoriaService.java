@@ -1,5 +1,6 @@
 package com.cursomc.repository.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,10 @@ public class CategoriaService {
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException(e.getMessage());
 		}
+	}
+	
+	public List<Categoria> findAll(){
+		return repository.findAll();
 	}
 
 	private void updateCategoria(Categoria obj, Categoria cat) {

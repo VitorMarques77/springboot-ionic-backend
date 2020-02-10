@@ -33,7 +33,7 @@ public class ClienteService {
 	
 	public Cliente findById(Long id) {
 		Optional<Cliente> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException(obj));
+		return obj.orElseThrow(() -> new ObjectNotFoundException(id));
 	}
 	
 	@Transactional

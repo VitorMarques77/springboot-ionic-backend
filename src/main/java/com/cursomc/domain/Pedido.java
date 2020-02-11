@@ -101,6 +101,10 @@ public class Pedido implements Serializable{
 		return itens;
 	}
 	
+	public Double getValorTotal() {
+		return itens.stream().map(x -> x.getSubTotal()).reduce(0.0, (x, y) -> x+y);
+	}
+	
 
 	@Override
 	public int hashCode() {

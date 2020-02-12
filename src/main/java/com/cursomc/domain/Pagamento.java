@@ -12,8 +12,16 @@ import javax.persistence.OneToOne;
 
 import com.cursomc.domain.enums.EstadoPagamento;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+
+@JsonSubTypes(
+{@JsonSubTypes.Type(value = PagamentoComBoleto.class , name = "pagamentoComBoleto"),
+@JsonSubTypes.Type(value = PagamentoComCartao.class, name = "pagamentoComCartao")})
+	
 @Inheritance(strategy = InheritanceType.JOINED) /* mapeamento da herança das subclasses indica que sera criada uma tabela com os atributos
 especificos da subclasse que for criada*/
 public abstract class Pagamento implements Serializable{

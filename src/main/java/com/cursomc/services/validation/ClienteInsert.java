@@ -1,4 +1,4 @@
-package com.cursomc.repository.services.validation;
+package com.cursomc.services.validation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

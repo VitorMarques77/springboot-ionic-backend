@@ -1,4 +1,4 @@
-package com.cursomc.repository.services;
+package com.cursomc.services;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +15,7 @@ import com.cursomc.domain.enums.EstadoPagamento;
 import com.cursomc.repositories.ItemPedidoRepository;
 import com.cursomc.repositories.PagamentoRepository;
 import com.cursomc.repositories.PedidoRepository;
-import com.cursomc.repository.services.exceptions.ObjectNotFoundException;
+import com.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PedidoService {

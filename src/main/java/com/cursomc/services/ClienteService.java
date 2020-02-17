@@ -1,4 +1,4 @@
-package com.cursomc.repository.services;
+package com.cursomc.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +20,8 @@ import com.cursomc.dto.ClienteDTO;
 import com.cursomc.dto.ClienteNewDTO;
 import com.cursomc.repositories.ClienteRepository;
 import com.cursomc.repositories.EnderecoRepository;
-import com.cursomc.repository.services.exceptions.DataIntegrityException;
-import com.cursomc.repository.services.exceptions.ObjectNotFoundException;
+import com.cursomc.services.exceptions.DataIntegrityException;
+import com.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {

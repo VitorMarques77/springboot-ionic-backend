@@ -1,4 +1,4 @@
-package com.cursomc.repository.services.validation.utils;
+package com.cursomc.services.validation.utils;
 
 
 //fonte: https://gist.github.com/adrianoluis/5043397d378ae506d87366abb0ab4e30

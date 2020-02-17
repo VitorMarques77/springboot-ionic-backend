@@ -23,7 +23,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.cursomc.domain.Cliente;
 import com.cursomc.dto.ClienteDTO;
 import com.cursomc.dto.ClienteNewDTO;
-import com.cursomc.repository.services.ClienteService;
+import com.cursomc.services.ClienteService;
 
 @RestController
 @RequestMapping(value = "/clientes")

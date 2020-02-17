@@ -1,4 +1,4 @@
-package com.cursomc.repository.services.validation;
+package com.cursomc.services.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import com.cursomc.domain.Cliente;
 import com.cursomc.domain.enums.TipoCliente;
 import com.cursomc.dto.ClienteNewDTO;
 import com.cursomc.repositories.ClienteRepository;
-import com.cursomc.repository.services.validation.utils.BR;
 import com.cursomc.resources.exceptions.FieldMessage;
+import com.cursomc.services.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
 

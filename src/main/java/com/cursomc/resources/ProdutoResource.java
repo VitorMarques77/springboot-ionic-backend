@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cursomc.domain.Produto;
 import com.cursomc.dto.ProdutoDTO;
-import com.cursomc.repository.services.ProdutoService;
 import com.cursomc.resources.utils.URL;
+import com.cursomc.services.ProdutoService;
 
 @RestController
 @RequestMapping(value = "/produtos")

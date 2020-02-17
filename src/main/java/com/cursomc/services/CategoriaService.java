@@ -1,4 +1,4 @@
-package com.cursomc.repository.services;
+package com.cursomc.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import com.cursomc.domain.Categoria;
 import com.cursomc.dto.CategoriaDTO;
 import com.cursomc.repositories.CategoriaRepository;
-import com.cursomc.repository.services.exceptions.DataIntegrityException;
-import com.cursomc.repository.services.exceptions.ObjectNotFoundException;
+import com.cursomc.services.exceptions.DataIntegrityException;
+import com.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {

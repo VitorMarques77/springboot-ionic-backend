@@ -1,4 +1,4 @@
-package com.cursomc.repository.services;
+package com.cursomc.services;
 
 import javax.mail.internet.MimeMessage;
 

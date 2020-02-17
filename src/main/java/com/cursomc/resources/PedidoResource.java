@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.cursomc.domain.Pedido;
-import com.cursomc.repository.services.PedidoService;
+import com.cursomc.services.PedidoService;
 
 @RestController
 @RequestMapping(value = "/pedidos")

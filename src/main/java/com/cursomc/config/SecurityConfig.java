@@ -14,11 +14,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.cursomc.security.JWTAuthenticationFilter;
+import com.cursomc.security.JWTAuthorizationFilter;
 import com.cursomc.security.JWTUtil;
 
 @Configuration
@@ -35,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private Environment environment;
 	
 	private static final String[] PUBLIC_MATCHERS = {
-			"/h2-console/**",
+			"/h2-console/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_GET = {
@@ -45,7 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+		//instruções para configurar as requisições do Postman em UTF-8
+		CharacterEncodingFilter filter = new CharacterEncodingFilter(); 
+		filter.setEncoding("UTF-8"); 
+		filter.setForceEncoding(true); 
+		http.addFilterBefore(filter, CsrfFilter.class);
+		//**fim das instruções
 		if(Arrays.asList(environment.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
@@ -56,6 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
+		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
